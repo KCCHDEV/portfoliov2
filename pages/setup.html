@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อุปกรณ์ทำงาน - KCCHDEV</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+Thai:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .setup-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 2rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .setup-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-[#050507] text-white">
+
+    <!-- Aura Background -->
+    <div class="aura-container">
+        <div class="aura-blob"></div>
+        <div class="aura-blob delay"></div>
+        <div class="aura-blob delay-2"></div>
+    </div>
+
+    <div class="bg-overlay"></div>
+
+    <nav
+        class="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md border-b border-white/5 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../index.html"
+                class="text-lg font-semibold tracking-tight text-white hover:opacity-80 transition flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                KCCH<span class="text-gray-400">DEV</span>
+            </a>
+            <div class="hidden md:flex space-x-10 text-sm font-medium tracking-wide text-gray-300">
+                <a href="../index.html" class="hover:text-white transition-colors">กลับหน้าแรก</a>
+                <a href="blog.html" class="hover:text-white transition-colors">บล็อก</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <header class="text-center mb-20 reveal">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 glow-text">Workspace Setup</h1>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    เปิดกรุอุปกรณ์ทำงานที่ผมใช้สร้างสรรค์ผลงานในทุกๆ วัน ทั้งฝั่ง Hardware และ Peripherals
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Laptop / PC Engine -->
+                <div class="setup-card reveal">
+                    <div class="text-4xl mb-6">💻</div>
+                    <h3 class="text-2xl font-bold mb-4">Acer Aspire 7</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><strong class="text-white">CPU:</strong> AMD Ryzen 5 5500U</li>
+                        <li><strong class="text-white">GPU:</strong> NVIDIA GTX 1650 4GB</li>
+                        <li><strong class="text-white">RAM:</strong> 16GB DDR4 2666MHz</li>
+                        <li><strong class="text-white">Storage:</strong> 512GB NVMe SSD</li>
+                    </ul>
+                </div>
+
+                <!-- Peripherals & Mobile -->
+                <div class="setup-card reveal">
+                    <div class="text-4xl mb-6">📱</div>
+                    <h3 class="text-2xl font-bold mb-4">Mobile & Phone</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><strong class="text-white">Device:</strong> Vivo V60</li>
+                        <li><strong class="text-white">Display:</strong> 6.77" AMOLED 120Hz</li>
+                        <li><strong class="text-white">CPU:</strong> Snapdragon 7 Gen 4</li>
+                        <li><strong class="text-white">Battery:</strong> 6500mAh | 90W</li>
+                        <li><strong class="text-white">Camera:</strong> 50MP ZEISS System</li>
+                    </ul>
+                </div>
+
+                <!-- Home Server -->
+                <div class="setup-card reveal">
+                    <div class="text-4xl mb-6">🖥️</div>
+                    <h3 class="text-2xl font-bold mb-4">Custom Server</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><strong class="text-white">CPU:</strong> AMD Ryzen 9 9950X3D</li>
+                        <li><strong class="text-white">RAM:</strong> 128GB DDR5</li>
+                        <li><strong class="text-white">GPU:</strong> NVIDIA Quadro P1000</li>
+                        <li><strong class="text-white">Storage:</strong> 2TB NVMe Gen5</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gallery Sub-section -->
+            <section class="mt-32">
+                <h2 class="text-3xl font-bold mb-12 text-center text-white">มุมทำงาน</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="gallery-item group">
+                        <img src="../img/workstation.jpg"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="gallery-item group">
+                        <img src="../img/job_cleanNB.jpg"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-gray-500 text-sm relative z-10 border-t border-white/5">
+        &copy; 2024 KCCHDEV - Workspace Overview
+    </footer>
+
+    <script>
+        // Reveal animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+    <!-- Audio Player -->
+    <script src="../audio.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำตัว - KCCHDEV</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Three.js & GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+Thai:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="intro-active antialiased">
+
+    <!-- 1. Background Video -->
+    <div class="video-background">
+        <iframe
+            src="https://www.youtube.com/embed/B6ZrAaGpsNI?autoplay=1&mute=1&loop=1&playlist=B6ZrAaGpsNI&controls=0&showinfo=0&rel=0&iv_load_policy=3&fs=0&disablekb=1"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- 1.1 Aura Background -->
+    <div class="aura-container">
+        <div class="aura-blob"></div>
+        <div class="aura-blob delay"></div>
+        <div class="aura-blob delay-2"></div>
+    </div>
+
+    <!-- 2. Dark Overlay -->
+    <div class="bg-overlay"></div>
+
+    <!-- 3. 3D Intro Layer -->
+    <div id="canvas-container"></div>
+    <button id="skip-btn" onclick="finishIntro()">Skip Intro</button>
+
+    <!-- 4. Main Website Content -->
+    <div id="web-content">
+        <div id="poke-assistant"></div>
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md border-b border-white/5 transition-all duration-500"
+            id="navbar">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <a href="#"
+                    class="text-lg font-semibold tracking-tight text-white hover:opacity-80 transition flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    KCCH<span class="text-gray-400">DEV</span>
+                </a>
+                <div id="weather-widget" class="hidden md:flex ml-4"></div>
+                <div class="hidden md:flex space-x-10 text-sm font-medium tracking-wide text-gray-300">
+                    <a href="#intro" class="hover:text-white transition-colors">หน้าแรก</a>
+                    <a href="#expertise" class="hover:text-white transition-colors">เกี่ยวกับผม</a>
+                    <a href="#showcase" class="hover:text-white transition-colors">ผลงาน</a>
+                    <a href="pages/setup.html" class="hover:text-white transition-colors">อุปกรณ์</a>
+                    <a href="pages/blog.html" class="hover:text-white transition-colors">บล็อก</a>
+                </div>
+                <a href="https://github.com/KCCHDEV" target="_blank"
+                    class="bg-white/10 text-white border border-white/10 text-xs font-bold px-6 py-2.5 rounded-full hover:bg-white hover:text-black transition uppercase tracking-wider">
+                    GitHub
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section (Split Layout: Text Left / Image Right) -->
+        <section id="intro" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                    <!-- Left: Text Content -->
+                    <div class="space-y-8 order-2 lg:order-1 text-center lg:text-left z-20">
+                        <div class="reveal">
+                            <span
+                                class="text-xs font-bold text-blue-400 tracking-widest uppercase mb-2 inline-block px-3 py-1 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                                Portfolio 2024
+                            </span>
+                        </div>
+
+                        <h1
+                            class="reveal text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] glow-text">
+                            สวัสดีครับ,<br>
+                            ผมชื่อ <span class="text-white">กอล์ฟ</span>
+                        </h1>
+
+                        <p class="reveal text-lg text-gray-400 font-light leading-relaxed max-w-lg mx-auto lg:mx-0">
+                            ยินดีต้อนรับสู่พื้นที่ของผม <strong class="text-white">Full Stack Developer</strong>
+                            ที่หลงใหลในการสร้างสรรค์ซอฟต์แวร์ ชอบเรียนรู้เทคโนโลยีใหม่ๆ และแบ่งปันความรู้ผ่าน Open
+                            Source
+                        </p>
+                        <div class="reveal mt-6 mb-4 h-12 flex items-center justify-center lg:justify-start">
+                            <p id="daily-quote" class="text-sm italic text-gray-400 border-l-2 border-blue-500/50 pl-4">
+                            </p>
+                        </div>
+
+                        <div class="reveal flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+                            <a href="#expertise"
+                                class="px-8 py-4 bg-white text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                                ทำความรู้จัก
+                            </a>
+                            <a href="https://github.com/KCCHDEV" target="_blank"
+                                class="px-8 py-4 bg-transparent border border-white/20 hover:bg-white/10 text-white font-semibold rounded-full transition-all duration-300 backdrop-blur-sm">
+                                ดูผลงาน GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Profile Image (Hidden on Mobile) -->
+                    <div class="hidden lg:flex order-1 lg:order-2 justify-center lg:justify-end reveal z-20">
+                        <div class="relative group w-full max-w-sm md:max-w-md">
+                            <!-- Glow Backdrop -->
+                            <div
+                                class="absolute -inset-2 bg-gradient-to-tr from-blue-600/50 to-purple-600/50 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-70 transition duration-1000">
+                            </div>
+
+                            <!-- Image Card -->
+                            <div
+                                class="relative aspect-[3/4] rounded-[2rem] overflow-hidden bg-gray-900 border border-white/10 shadow-2xl transform transition duration-500 group-hover:scale-[1.02]">
+                                <img src="https://scontent.fcnx1-1.fna.fbcdn.net/v/t39.30808-6/604535160_1155715186761954_3726721749365428528_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeF1UouCN_H4MUgMuync4UTqJAYeVq4-AEokBh5Wrj4ASqu2uOCCAi7A5puQwBqbUvYLi2M9Zi8biTYvJ_h6DiHZ&_nc_ohc=yW1TbXsgAlwQ7kNvwHKnmlj&_nc_oc=Admt5QFkkmSCGptvEA1b9RwIi1Q6LcJurUkW3y6JugHSTSVOaS7W0j_HjpJc-GMXMbg&_nc_zt=23&_nc_ht=scontent.fcnx1-1.fna&_nc_gid=Ai20S93zCmD1ISsgZ5Iv5g&oh=00_AfuqHHnRZwC-m-5Zc2RhI1qioyyMcxsmX_GERC7Uq2SQng&oe=6988ABA5"
+                                    alt="NAYGOLF Profile"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-80">
+                                </div>
+
+                                <div class="absolute bottom-0 left-0 right-0 p-8">
+                                    <div class="backdrop-blur-md bg-white/10 border border-white/10 p-4 rounded-xl">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-xl">
+                                                🚀</div>
+                                            <div>
+                                                <p class="text-white font-bold text-sm">Full Stack Developer</p>
+                                                <p class="text-gray-300 text-xs">Based in Thailand 🇹🇭</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-gray-500 z-20">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Bento Grid Section -->
+        <section id="expertise" class="py-32 relative bg-[#050507] border-t border-white/5 z-10">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="reveal text-3xl md:text-5xl font-bold mb-4 text-center text-white tracking-tight">ตัวตน &
+                    ความสนใจ</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(180px, auto)]">
+                    <!-- Profile Card -->
+                    <div
+                        class="reveal md:col-span-2 md:row-span-2 bg-[#0a0a0c] border border-white/10 rounded-[2rem] p-10 hover:border-white/20 transition duration-500 group relative overflow-hidden">
+                        <div class="relative z-10 h-full flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-2">Who am I</h3>
+                                <p class="text-4xl font-bold text-white mb-4 tracking-tight">KCCHDEV</p>
+                                <p class="text-gray-300 leading-relaxed text-lg">
+                                    Full Stack Developer ที่สนุกกับการแก้ปัญหาซับซ้อน มุ่งเน้นการพัฒนาระบบ Backend
+                                    ประสิทธิภาพสูง
+                                </p>
+                            </div>
+                            <div class="mt-8">
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-white/5 rounded-full text-sm text-gray-300 border border-white/10">System
+                                        Architecture</span>
+                                    <span
+                                        class="px-3 py-1 bg-white/5 rounded-full text-sm text-gray-300 border border-white/10">Open
+                                        Source</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tech Stack -->
+                    <div
+                        class="reveal md:col-span-1 md:row-span-2 bg-[#0a0a0c] border border-white/10 rounded-[2rem] p-8 hover:border-white/20 transition duration-500 flex flex-col">
+                        <h3 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6">Stack</h3>
+                        <div class="space-y-4 flex-1 flex flex-col justify-center text-gray-300">
+                            <div>TypeScript</div>
+                            <div>Node.js</div>
+                            <div>Next.js</div>
+                            <div>Python</div>
+                            <div>Docker</div>
+                        </div>
+                    </div>
+                    <!-- Small Cards -->
+                    <div
+                        class="reveal bg-[#0a0a0c] border border-white/10 rounded-[2rem] p-8 flex flex-col justify-center items-center">
+                        <span class="text-5xl font-bold text-white">5+</span>
+                        <span class="text-xs mt-2 text-gray-400">YEARS EXP</span>
+                    </div>
+                    <div
+                        class="reveal bg-[#0a0a0c] border border-white/10 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center">
+                        <div id="bento-weather" class="flex flex-col items-center">
+                            <span class="text-4xl mb-2">🇹🇭</span>
+                            <span class="text-xs text-gray-400">THAILAND</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="showcase" class="py-32 bg-[#050507] border-t border-white/5 z-10 relative">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-20 reveal">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">ผลงาน</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="#"
+                        class="reveal block group bg-[#111] border border-white/10 rounded-2xl p-8 hover:bg-[#111]/80 transition">
+                        <div class="text-5xl mb-6">🗄️</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition">base-MSDB-JS
+                        </h3>
+                        <p class="text-gray-400">JSON Database Manager ที่เบาและเร็วที่สุด</p>
+                    </a>
+                    <a href="#"
+                        class="reveal block group bg-[#111] border border-white/10 rounded-2xl p-8 hover:bg-[#111]/80 transition">
+                        <div class="text-5xl mb-6">🎵</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition">Makori
+                            Music</h3>
+                        <p class="text-gray-400">Discord Music Bot คุณภาพสูง</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section (Template) -->
+        <section id="gallery" class="py-32 relative bg-[#050507] border-t border-white/5 z-10">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-12 reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">คลังภาพ</h2>
+                    <p class="text-gray-400">รูปภาพและความทรงจำ (เอาเมาส์ชี้เพื่อดูรายละเอียด)</p>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Workspace -->
+                    <div class="gallery-item reveal group">
+                        <img src="img/workstation.jpg" alt="Workspace"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay">
+                            <div class="translate-y-4 group-hover:translate-y-0 transition duration-500">
+                                <h3 class="text-xl font-bold text-white mb-1">My Workspace</h3>
+                                <p class="text-sm text-gray-300">มุมทำงานที่ใช้สร้างสรรค์โปรเจกต์</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work -->
+                    <div class="gallery-item reveal group">
+                        <img src="img/job.jpg" alt="Work"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay">
+                            <div class="translate-y-4 group-hover:translate-y-0 transition duration-500">
+                                <h3 class="text-xl font-bold text-white mb-1">Professional Life</h3>
+                                <p class="text-sm text-gray-300">ความมุ่งมั่นในการเรียนรู้และทำงาน</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gaming -->
+                    <div class="gallery-item reveal group">
+                        <img src="img/Game.jpg" alt="Gaming"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay">
+                            <div class="translate-y-4 group-hover:translate-y-0 transition duration-500">
+                                <h3 class="text-xl font-bold text-white mb-1">Gaming Session</h3>
+                                <p class="text-sm text-gray-300">เวลาพักผ่อนและงานอดิเรกที่ชื่นชอบ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Food -->
+                    <div class="gallery-item reveal group">
+                        <img src="img/myfood.jpg" alt="Food"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay">
+                            <div class="translate-y-4 group-hover:translate-y-0 transition duration-500">
+                                <h3 class="text-xl font-bold text-white mb-1">Daily Treats</h3>
+                                <p class="text-sm text-gray-300">อาหารมื้อโปรดเพื่อเติมพลัง</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hobby -->
+                    <div class="gallery-item reveal group">
+                        <img src="img/cleanNintendo.jpg" alt="Hobby"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay">
+                            <div class="translate-y-4 group-hover:translate-y-0 transition duration-500">
+                                <h3 class="text-xl font-bold text-white mb-1">Maintenance</h3>
+                                <p class="text-sm text-gray-300">ดูแลสิ่งที่รักเพื่อให้อยู่กับเราไปนานๆ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Memories -->
+                    <div class="gallery-item reveal group">
+                        <img src="img/LoveForYou.jpg" alt="Memories"
+                            class="w-full h-80 object-cover rounded-2xl transition duration-700 group-hover:scale-110">
+                        <div class="gallery-overlay">
+                            <div class="translate-y-4 group-hover:translate-y-0 transition duration-500">
+                                <h3 class="text-xl font-bold text-white mb-1">Special Memories</h3>
+                                <p class="text-sm text-gray-300">เก็บรวบรวมช่วงเวลาที่แสนพิเศษ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section (Template) -->
+        <section id="games" class="py-20 relative bg-[#0a0a0c] border-t border-white/5 z-10">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="mb-10 reveal text-center">
+                    <h2 class="text-2xl md:text-4xl font-bold text-white tracking-tight">เกมที่เล่น</h2>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6">
+
+                    <!-- Game Item 1 -->
+                    <div class="game-card reveal group">
+                        <div
+                            class="h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition duration-300">
+                            <img src="img/game-ico/MonsterHunterWilds.png" alt="Monster Hunter Wilds"
+                                class="h-full object-contain">
+                        </div>
+                        <h3 class="text-white font-semibold">MH Wilds</h3>
+                        <p class="text-xs text-gray-500 mt-1">Hunt Begins</p>
+                    </div>
+
+                    <!-- Game Item 2 -->
+                    <div class="game-card reveal group">
+                        <div
+                            class="h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition duration-300">
+                            <img src="img/game-ico/MonsterHunterWorldIB.png" alt="Monster Hunter World Iceborne"
+                                class="h-full object-contain">
+                        </div>
+                        <h3 class="text-white font-semibold">MH World IB</h3>
+                        <p class="text-xs text-gray-500 mt-1">Iceborne</p>
+                    </div>
+
+                    <!-- Game Item 3 -->
+                    <div class="game-card reveal group">
+                        <div
+                            class="h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition duration-300">
+                            <img src="img/game-ico/helldrivers1.webp" alt="Helldivers 1" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-white font-semibold">Helldivers 1</h3>
+                        <p class="text-xs text-gray-500 mt-1">For Super Earth</p>
+                    </div>
+
+                    <!-- Game Item 4 -->
+                    <div class="game-card reveal group">
+                        <div
+                            class="h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition duration-300">
+                            <img src="img/game-ico/helldrivers2.webp" alt="Helldivers 2" class="h-full object-contain">
+                        </div>
+                        <h3 class="text-white font-semibold">Helldivers 2</h3>
+                        <p class="text-xs text-gray-500 mt-1">Liberty Spreads</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Section -->
+        <section id="partner" class="py-32 relative bg-[#050507] border-t border-white/5 z-10">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="reveal text-sm font-bold text-blue-500 tracking-widest uppercase mb-8">Personal Status</h2>
+
+                <div class="reveal relative inline-block group">
+                    <!-- Glow Effect -->
+                    <div
+                        class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl blur opacity-40 group-hover:opacity-100 transition duration-1000">
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative bg-black border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 md:gap-12 hover:border-blue-500/30 transition duration-500">
+
+                        <!-- Image -->
+                        <div class="w-32 h-32 md:w-40 md:h-40 relative">
+                            <img src="img/partner_temple.jpg" alt="Status"
+                                class="w-full h-full object-cover rounded-full border-2 border-white/10 shadow-2xl">
+                            <div
+                                class="absolute bottom-1 right-1 bg-blue-500 text-white text-xs px-2 py-1 rounded-full">
+                                💙</div>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="text-center md:text-left">
+                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">ครองโสดในโหมดสันโดษ</h3>
+                            <p class="text-gray-400 leading-relaxed italic mb-4">
+                                "ไม่มีคนข้างกายมานานเท่าไหร่แล้วนะ..."
+                            </p>
+                            <div id="single-timer" class="text-blue-400 font-mono text-lg mb-4">
+                                กำลังคำนวณเวลา...
+                            </div>
+                            <p class="text-gray-300 text-sm">
+                                โสดนะครับ พร้อมหาคนมาคู่กายแล้ว 🚀
+                            </p>
+                            <div class="mt-4 flex gap-2 justify-center md:justify-start">
+                                <span
+                                    class="text-xs bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20">Since
+                                    04/11/2025</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function updateTimer() {
+                const startDate = new Date("2025-11-04T00:00:00");
+                const now = new Date();
+                const diffTime = Math.abs(now - startDate);
+
+                const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+
+                document.getElementById("single-timer").innerHTML =
+                    `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
+            }
+            setInterval(updateTimer, 1000);
+            updateTimer();
+        </script>
+
+        <footer class="py-12 text-center text-gray-500 text-sm relative z-10 bg-[#050507] border-t border-white/5">
+            &copy; 2024 KCCHDEV
+        </footer>
+    </div>
+
+    <!-- Features API -->
+    <script src="features.js"></script>
+
+    <!-- Audio Player -->
+    <script src="audio.js"></script>
+
+    <!-- 3D Animation Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>

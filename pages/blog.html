@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บันทึกการเรียนรู้ - KCCHDEV</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+Thai:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .blog-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(60, 100, 255, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .date-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #3b82f6;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="antialiased bg-[#050507] text-white">
+
+    <!-- Aura Background -->
+    <div class="aura-container">
+        <div class="aura-blob"></div>
+        <div class="aura-blob delay"></div>
+        <div class="aura-blob delay-2"></div>
+    </div>
+
+    <div class="bg-overlay"></div>
+
+    <nav
+        class="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-md border-b border-white/5 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../index.html"
+                class="text-lg font-semibold tracking-tight text-white hover:opacity-80 transition flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                KCCH<span class="text-gray-400">DEV</span>
+            </a>
+            <div class="hidden md:flex space-x-10 text-sm font-medium tracking-wide text-gray-300">
+                <a href="../index.html" class="hover:text-white transition-colors">หน้าแรก</a>
+                <a href="setup.html" class="hover:text-white transition-colors">อุปกรณ์</a>
+                <a href="blog.html" class="text-white transition-colors">บล็อก</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <header class="text-center mb-20 reveal">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 glow-text text-white">Learning Journal</h1>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    บันทึกการเรียนรู้ เส้นทางการพัฒนา และสิ่งใหม่ๆ ที่ได้พบเจอในโลกของเทคโนโลยีแบบเจาะลึกทุกภาษา
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- 2017 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2017</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Hello World! ก้าวแรกกับ HTML</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เริ่มต้นจากการใช้ Notepad เขียนโครงสร้างพื้นฐาน &lt;html&gt; &lt;head&gt; &lt;body&gt;
+                        ยังจำความรู้สึกตอนเปิดไฟล์ .html ใน Browser แล้วเห็นตัวอักษร "สวัสดีครับ" ได้ดี
+                        มันคือจุดเริ่มต้นของการสร้างโลกใบใหม่
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20">Web
+                            Basics</span>
+                        <span
+                            class="px-3 py-1 bg-orange-500/10 text-orange-400 text-xs rounded-full border border-orange-500/20">HTML</span>
+                    </div>
+                </article>
+
+                <!-- 2017 Late -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Late 2017</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">ตกแต่งหน้าเว็บด้วย CSS & Layout</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เมื่อโครงสร้างเสร็จ ก็ถึงเวลาของความสวยงาม เริ่มลองเล่นกับ Color, Font และ Margin/Padding
+                        เรียนรู้เรื่อง Box Model และการจัด Layout แบบ Float (ก่อนที่จะรู้จัก Flexbox)
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20">Design</span>
+                        <span
+                            class="px-3 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded-full border border-indigo-500/20">CSS</span>
+                    </div>
+                </article>
+
+                <!-- 2018 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2018</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">PHP & MySQL: เว็บไซต์ที่เก็บข้อมูลได้</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        ขยับจากการเขียนเว็บ Static มาเป็น Dynamic เริ่มเรียนรู้ PHP เป็นภาษาแรกในการทำ Backend
+                        ลองเขียนระบบ Login และ Guestbook แบบดั้งเดิมโดยใช้ MySQL (mysqli_)
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full border border-purple-500/20">Backend</span>
+                        <span
+                            class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full border border-cyan-500/20">PHP/SQL</span>
+                    </div>
+                </article>
+
+                <!-- 2019 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2019</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Python: ภาษาที่ทำให้ชีวิตง่ายขึ้น</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        ได้ลองสัมผัส Python ครั้งแรก ทึ่งในความเรียบง่ายของ Syntax เริ่มเอามาเขียน Script เล็กๆ
+                        เพื่อจัดการไฟล์ในเครื่อง และลองเขียน Logic เกมทายตัวเลขง่ายๆ
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20">Automation</span>
+                        <span
+                            class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded-full border border-yellow-500/20">Python</span>
+                    </div>
+                </article>
+
+                <!-- 2019 Late -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Late 2019</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">JavaScript ES6+: ยกระดับ Web App</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        กลับมาโฟกัสที่ JavaScript อย่างจริงจัง เรียนรู้เรื่อง Arrow Functions, Destructuring และการใช้
+                        Fetch API เพื่อดึงข้อมูลจากโลกภายนอกผ่าน REST API
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-yellow-500/10 text-yellow-400 text-xs rounded-full border border-yellow-500/20">Modern
+                            Web</span>
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20">JavaScript</span>
+                    </div>
+                </article>
+
+                <!-- 2020 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2020</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Java & C++: พื้นฐาน Computer Science</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เริ่มศึกษาภาษาที่มีความซับซ้อนขึ้นอย่าง Java และ C++ เพื่อทำความเข้าใจเรื่อง OOP
+                        (Object-Oriented Programming) และ Memory Management อย่างลึกซึ้ง
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-red-500/10 text-red-400 text-xs rounded-full border border-red-500/20">Core
+                            CS</span>
+                        <span
+                            class="px-3 py-1 bg-orange-500/10 text-orange-400 text-xs rounded-full border border-orange-500/20">Java/C++</span>
+                    </div>
+                </article>
+
+                <!-- 2021 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2021</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Node.js: จุดพุ่งทะยานของ Discord Bot</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เริ่มโปรเจกต์ "Makori" - Discord Bot ตัวแรกที่เขียนด้วย Node.js และ Discord.js ได้เรียนรู้เรื่อง
+                        Event Loop, npm และการจัดการบอทขนาดใหญ่
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20">Real-time</span>
+                        <span
+                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full border border-purple-500/20">Node.js</span>
+                    </div>
+                </article>
+
+                <!-- 2021 Late -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Late 2021</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">TypeScript: ความปลอดภัยในโลกของความสับสน</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เมื่อโปรเจกต์เริ่มใหญ่ JavaScript แบบเดิมเริ่มจัดการยาก เลยย้ายมาใช้ TypeScript เพื่อลด Runtime
+                        Errors และเพิ่มความมั่นใจในการ Refactor โค้ด
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20">Type
+                            Safety</span>
+                        <span
+                            class="px-3 py-1 bg-blue-600/10 text-blue-300 text-xs rounded-full border border-blue-600/20">TypeScript</span>
+                    </div>
+                </article>
+
+                <!-- 2022 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2022</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">React & Vite: ประสบการณ์ใหม่ของ UI</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เริ่มต้นก้าวกระโดดสู่ React ได้เรียนรู้เรื่อง Component-based architecture และการจัดการ State
+                        ด้วย Hooks (useState, useEffect) จนสร้างเว็บ SPA ตัวแรกสำเร็จ
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full border border-cyan-500/20">Frontend</span>
+                        <span
+                            class="px-3 py-1 bg-blue-400/10 text-blue-300 text-xs rounded-full border border-blue-400/20">React</span>
+                    </div>
+                </article>
+
+                <!-- 2022 Late -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Late 2022</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Docker & Linux: โลกของ DevOps เบื้องต้น</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เริ่มเบื่อการรันโค้ดแค่เครื่องตัวเอง เลยหันมาศึกษา Docker เริ่มลอง Containerize แอป และเช่า VPS
+                        เพื่อรัน Linux สัมผัส Command Line อย่างเต็มรูปแบบ
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-gray-500/10 text-gray-400 text-xs rounded-full border border-gray-500/20">Infrastructure</span>
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20">Docker/Linux</span>
+                    </div>
+                </article>
+
+                <!-- 2023 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2023</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">MongoDB & API Architecture</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        ออกแบบระบบที่มีความซับซ้อนขึ้นด้วย NoSQL อย่าง MongoDB เรียนรู้เรื่องการทำ API Gateway และระบบ
+                        Authentication (JWT) เพื่อความปลอดภัยของข้อมูล
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-red-500/10 text-red-300 text-xs rounded-full border border-red-500/20">Secured
+                            API</span>
+                        <span
+                            class="px-3 py-1 bg-green-600/10 text-green-300 text-xs rounded-full border border-green-600/20">MongoDB</span>
+                    </div>
+                </article>
+
+                <!-- 2023 Late -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Late 2023</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Go (Golang): ความเร็วคือหัวใจ</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        ได้ลองเขียน Go เพื่อทำ Microservices สัมผัสความแรงของ Concurrency ด้วย Goroutines
+                        และความเรียบง่ายของภาษานี้ที่ทำให้การทำ Backend สนุกขึ้นมาก
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-cyan-400/10 text-cyan-300 text-xs rounded-full border border-cyan-400/20">Performance</span>
+                        <span
+                            class="px-3 py-1 bg-blue-300/10 text-blue-200 text-xs rounded-full border border-blue-300/20">Go
+                            Lang</span>
+                    </div>
+                </article>
+
+                <!-- 2024 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2024</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Tailwind CSS & GSAP Animations</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เน้นเรื่อง User Experience มากขึ้น เปลี่ยนมาใช้ Tailwind CSS เพื่อความรวดเร็ว และใช้ GSAP
+                        ในการทำ Motion Design ให้หน้าเว็บดู "มีชีวิต"
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-teal-500/10 text-teal-400 text-xs rounded-full border border-teal-500/20">UI/UX</span>
+                        <span
+                            class="px-3 py-1 bg-pink-500/10 text-pink-400 text-xs rounded-full border border-pink-500/20">Animation</span>
+                    </div>
+                </article>
+
+                <!-- 2024 Late -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Late 2024</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Next.js 15: ยุคปฏิวัติของ Fullstack Framework</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        อัปเกรดมาใช้ Next.js 15 เรียนรู้เรื่อง Server Actions และ Partial Prerendering
+                        เพื่อระบบที่มีประสิทธิภาพสูงสุดจนถึงปัจจุบัน
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs rounded-full border border-blue-500/20">Edge
+                            Runtime</span>
+                        <span
+                            class="px-3 py-1 bg-white/10 text-white text-xs rounded-full border border-white/20">Next.js</span>
+                    </div>
+                </article>
+
+                <!-- 2025 Early -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Early 2025</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">RAG & Vector Databases</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        เริ่มเข้าสู่โลกของ AI อย่างจริงจัง ศึกษาเรื่อง Retrieval-Augmented Generation (RAG) และการใช้
+                        Vector Database อย่าง Pinecone เพื่อทำให้ AI ฉลาดขึ้นในด้านเฉพาะทาง
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-indigo-500/10 text-indigo-400 text-xs rounded-full border border-indigo-500/20">Data
+                            Science</span>
+                        <span
+                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs rounded-full border border-purple-500/20">AI/VectorDB</span>
+                    </div>
+                </article>
+
+                <!-- 2026 Present -->
+                <article class="blog-card reveal">
+                    <span class="date-tag">Present Day</span>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Agentic AI: ยุคที่ AI คือคู่คิดการทำงาน</h2>
+                    <p class="text-gray-400 leading-relaxed mb-6 flex-1">
+                        ก้าวสู่จุดปัจจุบันด้วย Agentic AI Architecture การออกแบบ AI
+                        ที่สามารถรับคำสั่งและดำเนินการให้สำเร็จได้ด้วยตัวเองอย่างมีประสิทธิภาพและรับผิดชอบ
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span
+                            class="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 text-xs rounded-full border border-blue-500/20">Future
+                            Architecture</span>
+                        <span
+                            class="px-3 py-1 bg-gradient-to-r from-pink-500/20 to-indigo-500/20 text-pink-300 text-xs rounded-full border border-pink-500/20">Agentic
+                            AI</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-gray-500 text-sm relative z-10 border-t border-white/5">
+        &copy; 2024 KCCHDEV - Learning Journal
+    </footer>
+
+    <script>
+        // Reveal animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+    <!-- Audio Player -->
+    <script src="../audio.js"></script>
+</body>
+
+</html>
